@@ -71,15 +71,13 @@ ascii_arts = [
     """
 ]
 
-for i in range(100): print('')
-
 
 def letter_check(char: str, word: str):
     return word.find(char)
 
 
 def print_info(text):
-    print('\n'*100 + f'<--------------{message}--------------------->')
+    print('\n'*100 + f'<--------------{text}--------------------->')
     print(ascii_arts[counter_attempts])
     print('')
     print(f'угаданные буквы: {guessed_letters}')
@@ -88,16 +86,13 @@ def print_info(text):
 message = ''
 while True:
     if counter_attempts >= 6:
-        print('Вы не смогли угадать слово')
+        print_info('Вы не смогли угадать слово')
         break
     if '_' not in guessed_letters:
-        print('Вы отгадали слово')
+        print_info('Вы отгадали слово')
         break
 
-    print('\n'*100 + f'<--------------{message}--------------------->')
-    print(ascii_arts[counter_attempts])
-    print('')
-    print(f'угаданные буквы: {guessed_letters}')
+    print_info(message)
 
     letter = input('Введите букву: ')
 
