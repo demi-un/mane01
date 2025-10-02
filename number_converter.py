@@ -65,13 +65,10 @@ def determinant(number):
 
 # возвращает True, если числа взяты из одного языка (например, только арабские числа), иначе False
 def number_of_different_languages(lst):
-    list_language = []
-    for el in lst:
-        if len(list_language) > 1:
-            return False
+    list_language = {determinant(el) for el in lst}
 
-        if determinant(el) not in list_language:
-            list_language.append(determinant(el))
+    if len(list_language) == 2:
+        return False
 
     return True
 
